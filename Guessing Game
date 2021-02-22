@@ -1,6 +1,6 @@
 import random
 import time
-
+user_guess = 0
 print('Would you like to try guessing the number?')
 start_game = input('Type "Yes" to try it out \n')
 while start_game.lower() == 'yes':
@@ -16,16 +16,26 @@ while start_game.lower() == 'yes':
     print(f'You have {max_guess} Number of Guesses')
     while no_of_guess < max_guess:
         time.sleep(2)
-        user_guess = int(input('Entre Your Guessed Number:\n'))
-        no_of_guess += 1
+        guessed = input('Entre Your Guessed Number:\n')
+        try:
+            user_guess = int(guessed)
+        except ValueError:
+            print('Please enter an integer')
+
         time.sleep(2)
         if user_guess == rand_no:
             print(f'Hurrah! You have guessed the Right Number in {no_of_guess} attempts')
             break
+        elif user_guess == 0:
+            print('Have some patience')
         elif user_guess < rand_no:
             print("Your Guessed Number is Low")
+            no_of_guess += 1
+        elif user_guess > rand_no:
+            print("Your Guessed Number is High")
+            no_of_guess += 1
         else:
-            print(" Your Guessed Number is high")
+            print("Be grateful that I am not taking this chance!")
     else:
         time.sleep(2)
         print(' You have exhausted your guesses...')
