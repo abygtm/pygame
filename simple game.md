@@ -1,5 +1,5 @@
 # python_game
-#Simple game in python
+# It is a automatic 2 player game. It is like throwing a dice with 100 numbers to see who gets the biggest sum.
 import random
 import time
 
