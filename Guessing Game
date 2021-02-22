@@ -1,0 +1,44 @@
+import random
+import time
+
+print('Would you like to try guessing the number?')
+start_game = input('Type "Yes" to try it out \n')
+while start_game.lower() == 'yes':
+    play_again = 'No'
+    no_of_guess = 0
+    x = random.randint(20, 100)
+    print("So let's begin")
+    time.sleep(2)
+    print(f'I am thinking of a Number between 1 and {x}')
+    rand_no = random.randint(1, x)
+    max_guess = x//10
+    time.sleep(2)
+    print(f'You have {max_guess} Number of Guesses')
+    while no_of_guess < max_guess:
+        time.sleep(2)
+        user_guess = int(input('Entre Your Guessed Number:\n'))
+        no_of_guess += 1
+        time.sleep(2)
+        if user_guess == rand_no:
+            print(f'Hurrah! You have guessed the Right Number in {no_of_guess} attempts')
+            break
+        elif user_guess < rand_no:
+            print("Your Guessed Number is Low")
+        else:
+            print(" Your Guessed Number is high")
+    else:
+        time.sleep(2)
+        print(' You have exhausted your guesses...')
+        time.sleep(2)
+        print(f'The correct Answer is {rand_no}')
+    time.sleep(2)
+    print(' Would you like to play the game once again?')
+    play_again = input('Entre "Yes" to play again')
+    if play_again.lower() == 'yes':
+        time.sleep(2)
+        print("Let's play again")
+    else:
+        start_game = 'No'
+else:
+    time.sleep(2)
+    print("It was nice spending time together playing Guessing Game")
